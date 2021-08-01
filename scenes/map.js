@@ -5,12 +5,12 @@ export class Map extends Phaser.Scene {
   constructor() {
     super({ key: 'map' });
     this.cursors=null;
-    this.player;
+    this.player = new Player(this)
   }
 
   preload() {
+    this.player.preload();
     this.load.image('yellow_grass', 'assets/yellow_grass.jpg');
-    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     this.load.image('platform', 'assets/platform.png');
   }
   
@@ -26,7 +26,7 @@ export class Map extends Phaser.Scene {
     var platforms = this.physics.add.staticGroup();
     platforms.create(900, 600, 'platform');
 
-    this.player = new Player(this, 100, 450);
+    this.player.create(100, 450);
 
     //this.physics.add.collider(this.player.sprite, platforms);
     this.physics.add.overlap(this.player.sprite, platforms, Map.goMap2 , null, this);
