@@ -26,5 +26,10 @@ export default {
       id: 'barrel2',
       coord: { x: 6, y: 5 },
     },
+    {
+      type: 'Barrel',
+      id: 'barrel3',
+      coord: { x: 7, y: 5 },
+    },
   ],
 };

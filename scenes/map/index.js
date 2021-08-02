@@ -1,10 +1,10 @@
-import Player from '../class/player.js';
-import Exit from '../class/exit.js';
-import Barrel from '../class/barrel.js';
+import Player from '../../class/player.js';
+import Exit from '../../class/exit.js';
+import Barrel from '../../class/barrel.js';
 
-import Drawer from '../lib/drawer.js';
+import Drawer from '../../lib/drawer.js';
 
-import config from '../scenes_config/map.js';
+import config from './config.js';
 
 export default class Map extends Phaser.Scene {
   constructor() {
@@ -25,7 +25,7 @@ export default class Map extends Phaser.Scene {
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
-    const mapObjects = Drawer.fillScene(this, this.config);
+    const mapObjects = Drawer.fillMap(this, this.config);
 
     console.log(mapObjects);
 

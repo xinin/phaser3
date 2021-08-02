@@ -1,6 +1,6 @@
-import Map from './scenes/map.js';
-import Map2 from './scenes/map2.js';
-import Map3 from './scenes/map3.js';
+import Map from './scenes/map/index.js';
+import Map2 from './scenes/map2/index.js';
+import Map3 from './scenes/map3/index.js';
 
 const config = {
   type: Phaser.AUTO,

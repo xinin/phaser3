@@ -1,6 +1,6 @@
-import Player from '../class/player.js';
+import Player from '../../class/player.js';
 
-import Utils from '../lib/utils.js';
+import Utils from '../../lib/utils.js';
 
 export default class Map2 extends Phaser.Scene {
   constructor() {
