@@ -1,7 +1,5 @@
 import Utils from '../lib/utils.js';
 
-const IMG_ASSET_NAME = 'exit';
-
 class Exit {
   constructor(scene, id, nextMap) {
     this.scene = scene;
@@ -10,15 +8,19 @@ class Exit {
     this.nextMap = nextMap;
   }
 
+  static get IMG_ASSET_NAME() {
+    return 'exit';
+  }
+
   static preload(scene) {
-    scene.load.image(IMG_ASSET_NAME, 'assets/pink.jpg');
+    scene.load.image(Exit.IMG_ASSET_NAME, 'assets/pink.jpg');
   }
 
   draw(posX, posY) {
     this.sprite = this.scene.physics.add.sprite(
       Utils.coordToPixel(posX) + Utils.HALF_COMMON_SIZE,
       Utils.coordToPixel(posY) + Utils.HALF_COMMON_SIZE,
-      IMG_ASSET_NAME,
+      Exit.IMG_ASSET_NAME,
     );
   }
 

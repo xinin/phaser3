@@ -1,5 +1,6 @@
 import Player from '../class/player.js';
 import Exit from '../class/exit.js';
+import Barrel from '../class/barrel.js';
 
 import Drawer from '../lib/drawer.js';
 
@@ -16,6 +17,7 @@ export default class Map extends Phaser.Scene {
   preload() {
     this.player.preload();
     Exit.preload(this);
+    Barrel.preload(this);
 
     this.load.image('yellow_grass', 'assets/yellow_grass.jpg');
     this.load.image('platform', 'assets/platform.png');

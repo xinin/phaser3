@@ -15,4 +15,16 @@ export default {
       nextMap: 'map3',
     },
   ],
+  staticObjects: [
+    {
+      type: 'Barrel',
+      id: 'barrel1',
+      coord: { x: 5, y: 5 },
+    },
+    {
+      type: 'Barrel',
+      id: 'barrel2',
+      coord: { x: 6, y: 5 },
+    },
+  ],
 };
