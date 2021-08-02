@@ -1,40 +1,53 @@
-import { Player } from '../lib/player.js'
-import { Utils } from '../lib/utils.js'
+import Player from '../class/player.js';
+import Exit from '../class/exit.js';
 
-export class Map extends Phaser.Scene {
+import Drawer from '../lib/drawer.js';
+
+import config from '../scenes_config/map.js';
+
+export default class Map extends Phaser.Scene {
   constructor() {
     super({ key: 'map' });
-    this.cursors=null;
-    this.player = new Player(this)
+    this.cursors = null;
+    this.config = config;
+    this.player = new Player(this);
   }
 
   preload() {
     this.player.preload();
+    Exit.preload(this);
+
     this.load.image('yellow_grass', 'assets/yellow_grass.jpg');
     this.load.image('platform', 'assets/platform.png');
-  }
-  
-  static goMap2(){
-      console.log("overlap");
-      this.scene.start('map2')
   }
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
-    Utils.fillScene(this, 'yellow_grass')
-    
-    var platforms = this.physics.add.staticGroup();
-    platforms.create(900, 600, 'platform');
+    const mapObjects = Drawer.fillScene(this, this.config);
 
-    this.player.create(100, 450);
+    console.log(mapObjects);
 
-    //this.physics.add.collider(this.player.sprite, platforms);
-    this.physics.add.overlap(this.player.sprite, platforms, Map.goMap2 , null, this);
+    // var platforms = this.physics.add.staticGroup();
+    // platforms.create(900, 600, 'platform');
 
+    // const exit1 = new Exit(this, 'map2');
+    // exit1.draw(4, 19);
+
+    // const exit2 = new Exit(this, 'map2');
+    // exit2.draw(10, 10);
+
+    // this.player.draw(100, 450);
+
+    // this.physics.add.collider(this.player.sprite, platforms);
+    // this.physics.add.overlap(
+    //  this.player.sprite,
+    //  exit1.sprite,
+    //  () => exit1.changeMap(),
+    //  null, this,
+    // );
   }
 
-  update(){
-    this.player.keybindings()
+  update() {
+    this.player.keybindings();
   }
-
 }
