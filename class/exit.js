@@ -26,7 +26,8 @@ class Exit {
   }
 
   changeMap() {
-    Utils.changeMap(this.map.scene, this.nextMap);
+    console.log('ChangeMap', this.map);
+    Utils.changeMap(this.map, this.nextMap);
   }
 }
 

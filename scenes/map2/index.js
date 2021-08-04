@@ -7,6 +7,12 @@ export default class Map2 extends Phaser.Scene {
     super({ key: 'map2' });
     this.cursors = null;
     this.player = new Player(this);
+    this.state = null;
+  }
+
+  init(data) {
+    console.log('map2', data);
+    this.state = data;
   }
 
   preload() {

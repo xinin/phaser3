@@ -12,6 +12,11 @@ export default class Map extends Phaser.Scene {
     this.cursors = null;
     this.config = config;
     this.player = new Player(this);
+    this.state = null;
+  }
+
+  init(data) {
+    this.state = { test: 1 };
   }
 
   preload() {
