@@ -16,7 +16,14 @@ export default class Map extends Phaser.Scene {
   }
 
   init(data) {
-    this.state = { test: 1 };
+    this.state = {
+      player: {
+        max_health: 100,
+        max_energy: 100,
+        health: 100,
+        energy: 100,
+      },
+    };
   }
 
   preload() {
@@ -56,5 +63,7 @@ export default class Map extends Phaser.Scene {
 
   update() {
     this.player.keybindings();
+    this.player.energyConsumption();
+    console.log(this.state.player);
   }
 }

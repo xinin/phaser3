@@ -2,10 +2,16 @@ import Utils from '../lib/utils.js';
 
 const IMG_ASSET_NAME = 'dude';
 
+const STATUS_WAITING = 'WAITING';
+const STATUS_WALKING = 'WALKING';
+
+const ENERGY_WALKING = 0.02;
+
 class Player {
   constructor(map) {
     this.map = map;
     this.sprite = null;
+    this.status = null;
   }
 
   preload() {
@@ -43,14 +49,18 @@ class Player {
     if (this.map.cursors.left.isDown) {
       this.sprite.setVelocityX(-160);
       this.sprite.anims.play('left', true);
+      this.status = STATUS_WALKING;
     } else if (this.map.cursors.right.isDown) {
       this.sprite.setVelocityX(160);
       this.sprite.anims.play('right', true);
+      this.status = STATUS_WALKING;
     }
     if (this.map.cursors.up.isDown) {
       this.sprite.setVelocityY(-160);
+      this.status = STATUS_WALKING;
     } else if (this.map.cursors.down.isDown) {
       this.sprite.setVelocityY(160);
+      this.status = STATUS_WALKING;
     }
     if (!this.map.cursors.left.isDown
         && !this.map.cursors.right.isDown
@@ -59,6 +69,13 @@ class Player {
       this.sprite.setVelocityX(0);
       this.sprite.setVelocityY(0);
       this.sprite.anims.play('turn');
+      this.status = STATUS_WAITING;
+    }
+  }
+
+  energyConsumption() {
+    if (this.status === STATUS_WALKING) {
+      this.map.state.player.energy -= ENERGY_WALKING;
     }
   }
 }
