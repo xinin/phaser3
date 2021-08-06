@@ -3,6 +3,7 @@ import Exit from '../../class/exit.js';
 import Barrel from '../../class/barrel.js';
 
 import Drawer from '../../lib/drawer.js';
+import Clock from '../../lib/clock.js';
 
 import config from './config.js';
 
@@ -16,14 +17,7 @@ export default class Map extends Phaser.Scene {
   }
 
   init(data) {
-    this.state = {
-      player: {
-        max_health: 100,
-        max_energy: 100,
-        health: 100,
-        energy: 100,
-      },
-    };
+    this.state = data;
   }
 
   preload() {
@@ -37,6 +31,9 @@ export default class Map extends Phaser.Scene {
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.state.world.clock.continue(this);
+
     const mapObjects = Drawer.fillMap(this, this.config);
 
     console.log(mapObjects);
@@ -64,6 +61,8 @@ export default class Map extends Phaser.Scene {
   update() {
     this.player.keybindings();
     this.player.energyConsumption();
-    console.log(this.state.player);
+    // console.log(this.state.player);
+
+    this.state.world.clock.show();
   }
 }

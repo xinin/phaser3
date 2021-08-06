@@ -1,6 +1,7 @@
 import Map from './scenes/map/index.js';
 import Map2 from './scenes/map2/index.js';
 import Map3 from './scenes/map3/index.js';
+import Menu from './scenes/menu/index.js';
 
 const config = {
   type: Phaser.AUTO,
@@ -13,7 +14,8 @@ const config = {
       debug: false,
     },
   },
-  scene: [Map, Map2, Map3],
+  scene: [Menu, Map, Map2, Map3],
+  pixelArt: true,
 };
 
 new Phaser.Game(config);
