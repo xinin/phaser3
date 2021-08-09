@@ -5,8 +5,8 @@ import Menu from './scenes/menu/index.js';
 
 const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 640,
+  width: 1280,
+  height: 720,
   physics: {
     default: 'arcade',
     arcade: {

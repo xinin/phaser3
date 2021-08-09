@@ -14,6 +14,10 @@ class Player {
     this.status = null;
   }
 
+  show() {
+    console.log(this.sprite);
+  }
+
   preload() {
     this.map.load.spritesheet(IMG_ASSET_NAME, 'assets/dude.png', { frameWidth: 32, frameHeight: 32 });
   }
@@ -43,6 +47,7 @@ class Player {
       frameRate: 10,
       repeat: -1,
     });
+    this.map.cameras.main.startFollow(this.sprite);
   }
 
   keybindings() {

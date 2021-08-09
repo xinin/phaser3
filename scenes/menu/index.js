@@ -9,15 +9,32 @@ export default class Menu extends Phaser.Scene {
   create() {
     const helloButton = this.add.text(100, 100, 'Start New Game!', { fill: '#0f0' });
     helloButton.setInteractive();
-
-    // helloButton.on('pointerover', () => { console.log('pointerover'); });
-
     helloButton.on('pointerdown', () => this.startNewGame());
 
-    // this.scene.start('map');
+    const saveButton = this.add.text(100, 200, 'Save Game!', { fill: '#0f0' });
+    saveButton.setInteractive();
+    saveButton.on('pointerdown', () => this.saveGame());
   }
 
   startNewGame() {
+    this.state = {
+      player: {
+        max_health: 100,
+        max_energy: 100,
+        health: 100,
+        energy: 100,
+      },
+      world: {
+        name: 'myNewGame',
+        clock: new Clock(),
+      },
+    };
+
+    Utils.changeMap(this, 'map');
+  }
+
+  // test function
+  saveGame() {
     this.state = {
       player: {
         max_health: 100,
@@ -30,6 +47,6 @@ export default class Menu extends Phaser.Scene {
       },
     };
 
-    Utils.changeMap(this, 'map');
+    Utils.save(this.state);
   }
 }

@@ -2,7 +2,13 @@ export default {
   player: {
     coord: { x: 11, y: 10 },
   },
-  ground: 'yellow_grass',
+  world: {
+    ground: 'yellow_grass',
+    bounds: {
+      x: [0, 25],
+      y: [0, 20],
+    },
+  },
   exit: [
     {
       id: 'exit1',
@@ -19,17 +25,17 @@ export default {
     {
       type: 'Barrel',
       id: 'barrel1',
-      coord: { x: 5, y: 5 },
+      coord: { x: 0, y: 0 },
     },
     {
       type: 'Barrel',
       id: 'barrel2',
-      coord: { x: 6, y: 5 },
+      coord: { x: 25, y: 20 },
     },
     {
       type: 'Barrel',
       id: 'barrel3',
-      coord: { x: 7, y: 5 },
+      coord: { x: 10, y: 11 },
     },
   ],
 };

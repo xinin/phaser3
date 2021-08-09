@@ -3,7 +3,6 @@ import Exit from '../../class/exit.js';
 import Barrel from '../../class/barrel.js';
 
 import Drawer from '../../lib/drawer.js';
-import Clock from '../../lib/clock.js';
 
 import config from './config.js';
 
@@ -61,8 +60,10 @@ export default class Map extends Phaser.Scene {
   update() {
     this.player.keybindings();
     this.player.energyConsumption();
+
+    this.player.show();
     // console.log(this.state.player);
 
-    this.state.world.clock.show();
+    // this.state.world.clock.show();
   }
 }
