@@ -47,6 +47,11 @@ class Player {
       frameRate: 10,
       repeat: -1,
     });
+    this.map.cameras.main.setBounds(
+      0, 0,
+      Utils.coordToPixel(this.map.config.world.bounds.x[1]),
+      Utils.coordToPixel(this.map.config.world.bounds.y[1]),
+    );
     this.map.cameras.main.startFollow(this.sprite);
   }
 

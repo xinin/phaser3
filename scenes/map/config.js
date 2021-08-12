@@ -5,8 +5,8 @@ export default {
   world: {
     ground: 'yellow_grass',
     bounds: {
-      x: [0, 25],
-      y: [0, 20],
+      x: [0, 55],
+      y: [0, 40],
     },
   },
   exit: [
