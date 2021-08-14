@@ -26,6 +26,7 @@ export default class Map extends Phaser.Scene {
 
     this.load.image('yellow_grass', 'assets/yellow_grass.jpg');
     this.load.image('platform', 'assets/platform.png');
+    this.load.image('test2', 'assets/test2.png');
   }
 
   create() {

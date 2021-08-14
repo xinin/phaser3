@@ -19,26 +19,35 @@ export default class Map2 extends Phaser.Scene {
     this.player.preload();
     this.load.image('grass', 'assets/grass.jpg');
     this.load.image('yellow_grass', 'assets/yellow_grass.jpg');
+    this.load.image('tiles', 'assets/spritesheet/hyptosis_til-art-batch-2.png');
+    this.load.tilemapTiledJSON('map', 'scenes/map2/map1.json');
   }
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
     // Utils.fillScene(this, 'yellow_grass');
 
-    this.add.tileSprite(0, 0, 800, 640, 'yellow_grass');
-    this.physics.world.setBounds(0, 0, 800, 640);
+    const map = this.make.tilemap({ key: 'map' });
+    const tileset = map.addTilesetImage('hyptosis_til-art-batch-2', 'tiles');
+
+    const belowLayer = map.createStaticLayer('Ground', tileset, 0, 0);
+    const worldLayer = map.createStaticLayer('Objects', tileset, 0, 0);
+
+    worldLayer.setCollisionByProperty({ collides: true });
+
+    this.physics.world.setBounds(0, 0, 1280, 1280);
     this.physics.world.setBoundsCollision(true, true, true, true);
 
     this.player.draw(5, 5);
-    this.cameras.main.startFollow(this.player.sprite);
+    this.physics.add.collider(this.player.sprite, worldLayer);
+
+    const otra = map.createStaticLayer('BellowPlayer', tileset, 0, 0);
+
+
+    // this.cameras.main.startFollow(this.player.sprite);
   }
 
   update() {
     this.player.keybindings();
-  }
-
-  render() {
-    this.debug.cameraInfo(this.camera, 32, 32);
-    this.debug.spriteCoords(this.player.sprite, 32, 500);
   }
 }

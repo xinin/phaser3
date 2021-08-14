@@ -1,0 +1,85 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "/Users/diprieto/untitled.tmx": {
+            "scale": 0.22750618811881188,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1312.0522235822116,
+                "y": 1432.9280565755478
+            }
+        },
+        "/Users/diprieto/workspace/phaser/assets/tiles/food.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/diprieto/workspace/phaser/assets/tiles/index.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/diprieto/workspace/phaser/assets/tiles/untitled.tmx": {
+            "scale": 1.4303,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 331.04943018947074,
+                "y": 224.42844158568133
+            }
+        },
+        "/Users/diprieto/workspace/phaser/assets/tiles/untitled.tmx#hyptosis_tile-art-batch-1(1)": {
+            "scaleInDock": 1
+        },
+        "map1.tmx": {
+            "scale": 1.16,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 221.12068965517238,
+                "y": 178.448275862069
+            }
+        },
+        "map1.tmx#hyptosis_til-art-batch-2": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/Users/diprieto/workspace/phaser/scenes/map2",
+    "last.externalTilesetPath": "/Users/diprieto/workspace/phaser/assets",
+    "last.imagePath": "/Users/diprieto/workspace/phaser/assets/spritesheet",
+    "map.height": 15,
+    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 15,
+    "openFiles": [
+        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx",
+        "map1.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx",
+        "map1.tmx",
+        "/Users/diprieto/workspace/phaser/assets/tiles/untitled.tmx",
+        "/Users/diprieto/workspace/phaser/assets/tiles/index.tsx",
+        "/Users/diprieto/workspace/phaser/assets/tiles/food.tsx",
+        "/Users/diprieto/untitled.tmx"
+    ],
+    "tileset.lastUsedFilter": "All Files (*)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.transparentColor": "#460948"
+}

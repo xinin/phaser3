@@ -3,9 +3,10 @@ export default {
     coord: { x: 11, y: 10 },
   },
   world: {
+    background: 'test2',
     ground: 'yellow_grass',
     bounds: {
-      x: [0, 55],
+      x: [0, 40],
       y: [0, 40],
     },
   },
