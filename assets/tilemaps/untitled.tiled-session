@@ -9,7 +9,8 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "/Users/diprieto/untitled.tmx": {
             "scale": 0.22750618811881188,
@@ -44,10 +45,10 @@
         },
         "map1.tmx": {
             "scale": 1.16,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 221.12068965517238,
-                "y": 178.448275862069
+                "x": 202.58620689655174,
+                "y": 264.65517241379314
             }
         },
         "map1.tmx#hyptosis_til-art-batch-2": {
@@ -66,14 +67,13 @@
     "map.tileWidth": 32,
     "map.width": 15,
     "openFiles": [
-        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx",
         "map1.tmx"
     ],
     "project": "untitled.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx",
         "map1.tmx",
+        "/Users/diprieto/workspace/phaser/assets/tiles/hyptosis_til-art-batch-2.tsx",
         "/Users/diprieto/workspace/phaser/assets/tiles/untitled.tmx",
         "/Users/diprieto/workspace/phaser/assets/tiles/index.tsx",
         "/Users/diprieto/workspace/phaser/assets/tiles/food.tsx",
