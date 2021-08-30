@@ -4,6 +4,7 @@ const IMG_ASSET_NAME = 'dude';
 
 const STATUS_WAITING = 'WAITING';
 const STATUS_WALKING = 'WALKING';
+const STATUS_DESTROYED = 'DESTROYED';
 
 const ENERGY_WALKING = 0.02;
 
@@ -53,34 +54,63 @@ class Player {
       Utils.coordToPixel(this.map.config.world.bounds.y[1]),
      );
      this.map.cameras.main.startFollow(this.sprite);
+     this.status = STATUS_WAITING;
   }
 
   keybindings() {
-    if (this.map.cursors.left.isDown) {
-      this.sprite.setVelocityX(-160);
-      this.sprite.anims.play('left', true);
-      this.status = STATUS_WALKING;
-    } else if (this.map.cursors.right.isDown) {
-      this.sprite.setVelocityX(160);
-      this.sprite.anims.play('right', true);
-      this.status = STATUS_WALKING;
+    try{
+      this.sprite.setVelocity(0);
+
+      if (this.map.cursors.left.isDown) {
+        this.sprite.setVelocityX(-160);
+        this.sprite.anims.play('left', true);
+        this.status = STATUS_WALKING;
+      } else if (this.map.cursors.right.isDown) {
+        this.sprite.setVelocityX(160);
+        this.sprite.anims.play('right', true);
+        this.status = STATUS_WALKING;
+      } else {
+        this.sprite.setVelocityX(0);
+      }
+  
+      if (this.map.cursors.up.isDown) {
+        this.sprite.setVelocityY(-160);
+        this.status = STATUS_WALKING;
+      } else if (this.map.cursors.down.isDown) {
+        this.sprite.setVelocityY(160);
+        this.status = STATUS_WALKING;
+      } else {
+        this.sprite.setVelocityY(0);
+      }
+  
+      if (!this.map.cursors.left.isDown
+          && !this.map.cursors.right.isDown
+          && !this.map.cursors.down.isDown
+          && !this.map.cursors.up.isDown) {
+        this.sprite.anims.play('turn');
+        this.status = STATUS_WAITING;
+      }
     }
-    if (this.map.cursors.up.isDown) {
-      this.sprite.setVelocityY(-160);
-      this.status = STATUS_WALKING;
-    } else if (this.map.cursors.down.isDown) {
-      this.sprite.setVelocityY(160);
-      this.status = STATUS_WALKING;
+    catch(e){
+      console.error(e)
     }
-    if (!this.map.cursors.left.isDown
-        && !this.map.cursors.right.isDown
-        && !this.map.cursors.down.isDown
-        && !this.map.cursors.up.isDown) {
-      this.sprite.setVelocityX(0);
-      this.sprite.setVelocityY(0);
-      this.sprite.anims.play('turn');
-      this.status = STATUS_WAITING;
-    }
+  }
+
+  stop(){
+    this.sprite.setVelocityX(0);
+    this.sprite.setVelocityY(0);
+    this.sprite.anims.play('turn');
+    this.status = STATUS_WAITING;
+  }
+
+  destroy(){
+    this.stop()
+    this.map.cursors.left.reset();
+    this.map.cursors.right.reset();
+    this.map.cursors.up.reset();
+    this.map.cursors.down.reset();
+    this.sprite.destroy(true);
+    this.status = STATUS_DESTROYED
   }
 
   energyConsumption() {

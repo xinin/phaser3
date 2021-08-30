@@ -1,25 +1,39 @@
 import Player from '../../class/player.js';
+import Barrel from '../../class/barrel.js';
+import Exit from '../../class/exit.js';
 
 import Utils from '../../lib/utils.js';
+import Drawer from '../../lib/drawer.js';
+import config from './config.js';
 
-export default class Map3 extends Phaser.Scene {
+export default class Map2 extends Phaser.Scene {
   constructor() {
     super({ key: 'map3' });
     this.cursors = null;
     this.player = new Player(this);
+    this.config = config;
+    this.state = null;
+  }
+
+  init(data) {
+    this.state = data;
   }
 
   preload() {
+    Barrel.preload(this);
+    Exit.preload(this);
     this.player.preload();
-    this.load.image('grass', 'assets/grass.jpg');
+    this.load.image('tile', this.config.world.tilemap.image);
+    this.load.tilemapTiledJSON('map', this.config.world.tilemap.json);
   }
 
   create() {
-    
     this.cursors = this.input.keyboard.createCursorKeys();
-    Utils.fillScene(this, 'grass');
 
-    this.player.draw(15, 15);
+    this.state.world.clock.continue(this);
+
+    const mapObjects = Drawer.fillMap2(this, this.config);
+
   }
 
   update() {

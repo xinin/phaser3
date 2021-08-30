@@ -1,4 +1,6 @@
 import Player from '../../class/player.js';
+import Barrel from '../../class/barrel.js';
+import Exit from '../../class/exit.js';
 
 import Utils from '../../lib/utils.js';
 import Drawer from '../../lib/drawer.js';
@@ -18,6 +20,8 @@ export default class Map2 extends Phaser.Scene {
   }
 
   preload() {
+    Barrel.preload(this);
+    Exit.preload(this);
     this.player.preload();
     this.load.image('tile', this.config.world.tilemap.image);
     this.load.tilemapTiledJSON('map', this.config.world.tilemap.json);

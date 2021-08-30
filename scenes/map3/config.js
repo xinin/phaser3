@@ -1,10 +1,10 @@
 export default {
   player: {
-    coord: { x: 1, y: 1 },
+    coord: { x: 12, y: 12 },
   },
   world: {
     tilemap: {
-      json: 'scenes/map2/map1.json',
+      json: 'scenes/map3/map1.json',
       image:'assets/spritesheet/hyptosis_til-art-batch-2.png', 
       layers: [
         {
@@ -22,14 +22,14 @@ export default {
     },
     bounds: {
       x: [0, 15],
-      y: [0,15],
+      y: [0, 15],
     },
   },
   exit: [
     {
       id: 'exit1',
-      coord: { x: 2, y: 10 },
-      nextMap: 'map3',
+      coord: { x: 10, y: 10 },
+      nextMap: 'map2',
     },
   ],
   staticObjects: [

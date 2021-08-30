@@ -30,7 +30,7 @@ export default class Menu extends Phaser.Scene {
       },
     };
 
-    Utils.changeMap(this, 'map');
+    Utils.changeMap(this, 'map2');
   }
 
   // test function
